@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "network-visualizer"
+version = "0.1.0"
+description = "A package for visualizing networks"
+readme = "README.md"
+authors = ["Fennerr"]
+
+
+[tool.poetry.dependencies]
+python = "^3.9"
+rich = "^13.7.1"
+boto3 = "^1.34.65"
+
+[tool.poetry.scripts]
+network-visualizer = 'network_visualizer:main'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
