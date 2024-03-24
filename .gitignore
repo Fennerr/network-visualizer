@@ -1,3 +1,16 @@
+/Notes.md
+
+.vscode/
+
+*.tfstate
+*.tfstate.backup
+*.tfstate.backup.*
+terraform.tfvars
+terraform.tfstate
+terraform.log
+.terraform
+.terraform.lock.hcl
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
