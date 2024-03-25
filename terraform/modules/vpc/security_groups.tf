@@ -31,6 +31,14 @@ resource "aws_security_group" "ec2_sg" {
     security_groups = [aws_security_group.elb_sg.id]
   }
 
+  # Allow SSH
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["${data.publicip_address.source_v4.ip}/32"]
+  }
+
   # Standard egress rule
   egress {
     from_port   = 0

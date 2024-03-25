@@ -1,35 +1,8 @@
-resource "aws_security_group" "alb_sg" {
-  name        = "alb-sg"
-  description = "Security group for ALB allowing port 80"
-  vpc_id      = var.vpc_id
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 3389
-    to_port     = 3389
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-
 resource "aws_lb" "alb" {
   name               = "nv-public-alb"
   internal           = false
   load_balancer_type = "network"
-  security_groups    = [aws_security_group.alb_sg.id]
+  security_groups    = [var.elb_sg_id]
   subnets            = var.subnets
 
   enable_deletion_protection = false

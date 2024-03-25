@@ -37,5 +37,6 @@ module "elb" {
     subnets = module.vpc.subnets
     ec2_instance_id = module.ec2.ec2_instance_id
     rds_instance_ip = module.rds.rds_instance_ip
+    elb_sg_id = module.vpc.elb_sg_id
 }
 
